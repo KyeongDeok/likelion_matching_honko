@@ -1,0 +1,19 @@
+// Place all the styles related to the apply controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+#board_cover {
+  width: 100%;
+  height: 300px;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-color: rgba(0,0,0,.2);
+  background-image: linear-gradient(to bottom, rgba(0,0,0,.2) 0%, rgba(0,0,0,.2) 100%), url(photo_1.jpg);
+}
+
+.b_cover {
+    width: 100%;
+    min-height: 300px;
+    text-align: center;
+    color: #fff;
+}

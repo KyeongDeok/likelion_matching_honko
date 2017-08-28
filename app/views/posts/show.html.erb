@@ -1,0 +1,26 @@
+
+<h1>제목</h1>
+<%= @post.title %>
+<h3>내용</h3>
+<%= @post.content.html_safe %>
+
+<hr>
+<h4>댓글</h4>
+
+<%= form_for @comment, url: "/comments/create" do |f|%>
+	<%= f.hidden_field :user_id, value: current_user.id %>
+	<%= f.hidden_field :post_id, value: @post.id %>
+	<%= f.text_field :content, label: '내 용', :rows => 15, :cols => 120 %>
+  <%= f.submit "글쓰기" %>
+<% end %>
+
+<hr>
+
+<h5>댓글입니당</h5>
+<% @comments.each do |comment| %>
+  <%= comment.content.html_safe %>
+  <%= link_to '[x]',"/comments/#{comment.post_id}/destroy/#{comment.id}", method: :delete %>
+  <% end %>
+
+<%= link_to '삭제하기',"/posts/destroy/#{@post.id}" ,method: :delete %>
+<%= link_to '수정하기',"/posts/edit/#{@post.id}" %>

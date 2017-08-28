@@ -1,0 +1,107 @@
+
+	<!-- Cover -->
+	<section id = "board_cover">
+		<header class ="header container">
+			<div class="row">
+				<div class="b_cover d-flex justify-content-center align-items-center">
+				<h2 class ="cover_title">신청하기 페이지.</h2>
+				</div>
+					<hr>
+			</div>
+		</header>
+	</section>
+	<% if @user.apply == false %>
+					<article class="pt-3">
+						<div class="container">
+						<%= form_tag('/apply/apply_new') do %>
+								<div class="form-group row">
+								<%= label_tag(:name, "이름", class: 'col-2 col-form-label') %>
+								<div class="col-10">
+				  				<%= text_field_tag(:name, '이름' ,class: 'form-control') %>
+				  				</div>
+								  <!-- <label for="example-text-input" class="col-2 col-form-label">이 름</label>
+								  <div class="col-10">
+								    <input class="form-control" type="text" value="Artisanal kale" id="example-text-input">
+								  </div> -->
+								</div>
+								<div class="form-group row">
+								<%= label_tag(:kakaoid, "카카오톡 ID", class: 'col-2 col-form-label') %>
+								  <!-- <label for="example-text-input" class="col-2 col-form-label">카카오톡 ID</label> -->
+								  <div class="col-10">
+								  <%= text_field_tag(:kakaoid, '카카오톡 ID' ,class: 'form-control') %>
+								    <!-- <input class="form-control" type="text" value="Artisanal kale" id="example-text-input"> -->
+								  </div>
+								</div>
+							  <div class="form-group row">
+							  <%= label_tag("age", "나이", class: 'col-2 col-form-label') %>
+								  <!-- <label for="example-number-input" class="col-2 col-form-label">나이</label> -->
+								  <div class="col-10">
+								  <%= number_field_tag 'age', nil, class: "form-control"%>
+								    <!-- <input class="form-control" type="number" value="42" id="example-number-input"> -->
+								  </div>
+								</div>
+								<div class="form-group">
+								<%= label_tag(:school, "학교 선택",) %>
+							    <!-- <label for="exampleSelect1">학교 선택</label> -->
+							    <%= select_tag :school, options_for_select([ "가천대학교", "한양대학교", "한양대학교 에리카", "충남대학교", "대전대학교", "충북대학교", "전북대학교", "전남대학교", "동덕여자대학교", "경북대학교", "대구대학교", "경상대학교","부산대학교"]), class: "form-control"%>
+							    <!-- <select class="form-control" id="exampleSelect1"> -->
+							     <!--  <option>가천대학교</option>
+							      <option>한양대학교</option>
+							      <option>한양대학교 에리카</option>
+							      <option>충남대학교</option>
+							      <option>대전대학교</option>
+							      <option>충북대학교</option>
+							      <option>전북대학교</option>
+							      <option>전남대학교</option>
+							      <option>동덕여자대학교</option>
+							      <option>경북대학교</option>
+							      <option>대구대학교</option>
+							      <option>경상대학교</option>
+							      <option>부산대학교</option>
+							    </select> -->
+							  </div>		
+							  <div class="form-group">
+							  <%= label_tag(:locale, "스터디 지역 선택",) %>
+							    <!-- <label for="exampleSelect1">스터디 지역 선택</label> -->
+							    <%= select_tag :locale, options_for_select([ "서울", "경기", "강원", "충남", "대전", "충북", "전북", "전남", "광주", "경북", "대구", "경상","부산"]), class: "form-control"%>
+							    <!-- <select class="form-control" id="exampleSelect1">
+							      <option>서울</option>
+							      <option>경기</option>
+							      <option>강원</option>
+							      <option>충남</option>
+							      <option>대전</option>
+							      <option>충북</option>
+							      <option>전북</option>
+							      <option>전남</option>
+							      <option>광주</option>
+							      <option>경북</option>
+							      <option>대구</option>
+							      <option>경남</option>
+							      <option>부산</option>
+							    </select> -->
+							  </div>
+							  <%= submit_tag '신청하기', class: "btn btn-primary"%>
+							  <% end %>
+							</div>
+						  
+			  <% else %>
+			  <div class="container">
+			  	<div class="row">
+			  		<div class="col-12 d-flex justify-content-center pt-3">
+			  			<%= link_to '신청취소', "/apply/apply_cancel/#{@user.apply_id}" ,class: "btn btn-primary"%>
+			  		</div>
+			  	</div>
+			  	<div class="row">
+			  		<div class="col-12 d-flex justify-content-center pt-3">
+			  			<p>신청이 완료되었습니다.</p>
+			  		</div>
+			  	</div>
+			  </div>
+			  	
+			  
+			  
+				<!-- <input class="btn btn-primary" type="submit" value="신청하기">
+				<input class="btn btn-primary" type="submit" value="수정하기"> -->
+			</div>
+			<% end %>
+	</article>

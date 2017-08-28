@@ -1,0 +1,56 @@
+
+<!-- Cover -->
+	<section id = "board_cover">
+		<header class ="header container">
+			<div class="row">
+				<div class="b_cover d-flex justify-content-center align-items-center">
+				<h2 class ="cover_title">게시판</h2>
+				</div>
+					<hr>
+			</div>
+		</header>
+	</section>
+<div class="notice">
+	<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+	  <div class="collapse navbar-collapse" id="navbarNav">
+	    <ul class="navbar-nav">
+	      <li class="nav-item active">
+	      	<%= link_to '공지사항', '#', class: "nav-link"%>
+	      </li>
+	      <li class="nav-item">
+	        <%= link_to '자유게시판', '#', class: "nav-link"%>
+	      </li>
+      </ul>
+    </div>
+	</nav>
+<section class="time-table">
+  <div class="table table-striped table-resposive">
+     <!--폼 태그-->
+      <table class="table table-fit">
+        <thead>
+          <tr>
+            <th>게시글</th>
+            <th>제목</th>
+            <th>내용</th>
+            <th>글쓴이</th>
+          </tr>
+        </thead>
+        <% @posts.each do |post|%>
+        <tbody>
+          <tr>
+            <td>
+            	<%= post.id %>
+            </td>
+            <td><%= link_to post.title, "/posts/show/#{post.id}" %></td>
+            <td class="time-table"><%= post.content.html_safe %></td>
+            <td class="time-table"><%#= post.user.email %></td>
+            <% end %>
+          </tr>
+        </tbody>
+      </table>
+      <div class="container">
+        <div class="row justify-content-center ">
+        	<%= link_to '글쓰기', new_posts_path,class: "btn btn-primary" %>
+      	</div>
+    	</div>
+  </div>

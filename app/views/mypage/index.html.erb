@@ -1,0 +1,23 @@
+<% if @user.apply == false %>
+  <ul class="list-group">
+    <li class="list-group-item">email: <%= @user.email %></li>
+    <% if user_signed_in? %>
+    <li><%= link_to 'Log out', destroy_user_session_path, method: :delete %></a></li>
+  <% else %>
+    <li><%= link_to 'Log in', new_user_session_path %></a></li>
+  <% end %>
+  </ul>
+<% else %>
+<ul class="list-group">
+  <li class="list-group-item active">my page</li>
+  <li class="list-group-item">email: <%= @user.email %></li>
+  <li class="list-group-item">이름: <%= @appler.name %></li>
+  <li class="list-group-item">나이: <%= @appler.age %></li>
+  <li class="list-group-item">학교: <%= @appler.school %></li>
+</ul>
+  <% if user_signed_in? %>
+    <li><%= link_to 'Log out', destroy_user_session_path, method: :delete %></a></li>
+  <% else %>
+    <li><%= link_to 'Log in', new_user_session_path %></a></li>
+  <% end %>
+<% end %>

@@ -1,0 +1,7 @@
+<%= form_for @post, url: "/posts/update/#{@post.id}", method: :put do |f|%>
+	<%#= f.hidden_field :user_id, value: current_user.id %>
+	<%= f.text_field :title, label: '제 목' %>
+	<%= f.text_area :content, label: '내 용', :class => "tinymce", :rows => 15, :cols => 120 %>
+	<%= tinymce :alternate %>
+  <%= f.submit "수정하기" %>
+<% end %>
