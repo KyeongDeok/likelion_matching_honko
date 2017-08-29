@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+
+gem 'carrierwave'
 gem 'devise'
 gem 'tinymce-rails'
 gem 'rails_db'
