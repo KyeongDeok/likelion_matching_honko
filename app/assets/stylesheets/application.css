@@ -108,7 +108,7 @@ a.bg-primary:hover {color: #fff; background-color: #ff7600 !important; opacity: 
   width: 100%;
   /*min-height: 100vh;*/
   height: auto;
-  background-image: url('https://s3.ap-northeast-2.amazonaws.com/honkolion/photo_5.jpeg');
+  background: image_path('https://s3.ap-northeast-2.amazonaws.com/honkolion/photo_5.jpeg');
   background-size: cover;
   background-position: center center;
   background-attachment: fixed;
