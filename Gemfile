@@ -1,7 +1,11 @@
 source 'https://rubygems.org'
 
 
-
+gem "mini_magick"
+gem "paperclip", "~> 5.0.0"
+gem 'figaro'
+gem 'aws-sdk', '~> 1.36.1'
+gem 'fog'
 gem 'devise'
 gem 'tinymce-rails'
 gem 'rails_db'
